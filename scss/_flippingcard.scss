@@ -1,5 +1,11 @@
 $card-primary: desaturate(darken(#7c2e7e, 20%), 5%);
 $card-primary-dim: #ad9cad;
+
+// social icon colors
+
+$tweet-blue: #4099FF;
+$gh-grey: #24292E;
+
 * {
   box-sizing: border-box;
 }
@@ -30,10 +36,76 @@ $card-primary-dim: #ad9cad;
   pointer-events: none;
 }
 
+.card-social {
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.card-social__link {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  color: white;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: all 200ms ease-out;
+
+  &:visited {
+    color: currentColor;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: white;
+  }
+
+  &:active {
+    background-color: lighten($card-primary, 20%);
+  }
+
+  + .card-social__link {
+    margin-left: 1rem;
+  }
+
+  &--twitter {
+    background-color: $tweet-blue;
+    
+    &:hover,
+    &:focus {
+      color: $tweet-blue;
+    }
+
+    &:active {
+      color: white;
+    }
+  }
+
+  &--github,
+  &--codepen {
+    background-color: $gh-grey;
+    
+    &:hover,
+    &:focus {
+      color: $gh-grey;
+    }
+
+    &:active {
+      color: white;
+    }
+  }
+}
+
+
 .card {
   width: inherit;
   height: inherit;
   position: relative;
+  pointer-events: none;
   transform-style: preserve-3d;
   transition: transform 1s;
 }
@@ -77,6 +149,10 @@ $card-primary-dim: #ad9cad;
   }
 }
 
+.card__body {
+  pointer-events: auto;
+}
+
 .card__name {
   margin: 0;
   font-size: 1.75rem;
@@ -105,6 +181,10 @@ $card-primary-dim: #ad9cad;
 
 .card__input:checked + .card {
   transform: rotateX(180deg);
+
+  & .card-social {
+    pointer-events: none;
+  }
 }
 
 .card__switch:hover ~ .card {
