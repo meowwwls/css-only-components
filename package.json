@@ -1,0 +1,24 @@
+{
+  "name": "css-only-components",
+  "version": "1.0.0",
+  "description": "A small sample of css-only components built to demonstrate the power of CSS. (Not accessible, so not meant for production.)",
+  "scripts": {
+    "scss": "node-sass --output-style expanded -o css scss",
+    "autoprefixer": "postcss -u autoprefixer -r css/*.css",
+    "clean-css": "cleancss -o css/main.min.css css/main.css",
+    "serve": "browser-sync start --server --files 'css/main.min.css, html/*.html'",
+    "build:css": "npm run scss && npm run autoprefixer && npm run clean-css",
+    "watch:css": "onchange 'css/main.css' -- npm run clean-css",
+    "watch:scss": "onchange 'scss/*.scss' -- npm run scss"
+  },
+  "author": "Melissa Miller",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^6.7.7",
+    "browser-sync": "^2.18.8",
+    "clean-css-cli": "^4.0.12",
+    "node-sass": "^4.5.2",
+    "onchange": "^3.2.1",
+    "postcss-cli": "^3.2.0"
+  }
+}

@@ -1,0 +1,205 @@
+$label-bg-sm: #0080ff;
+$label-bg-md: #99f19e;
+$label-bg-mdlg: #232323;
+$label-bg-lg: #FE4A49;
+
+$white: #fefefe;
+
+.accordion__section {
+  padding: 1rem;
+}
+
+.accordion__list {
+  margin: 1.5rem auto;
+  padding: 0;
+  max-width: 1025px;
+  background-color: $white;
+  list-style: none;
+  font-family: 'Open Sans Condensed', inherit;
+}
+
+.accordion__item + .accordion__item {
+  margin-top: .4rem;
+}
+
+.accordion__label {
+  position: relative;
+  display: block;
+  padding: 1rem;
+  background-color: $label-bg-sm;
+  color: $white;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.accordion__input:focus + .accordion__label,
+.accordion__label:hover {
+  background-color: lighten($label-bg-sm, 10%);
+}
+
+.accordion__input:checked + .accordion__label {
+  background-color: darken($label-bg-sm, 20%);
+}
+
+/* ARROW */
+.accordion__title::after {
+  content: '';
+  position: absolute;
+  top: 1rem;
+  right: 1.875rem;
+  bottom: 1.875rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-right: 0.125rem solid;
+  border-bottom: 0.125rem solid;
+  pointer-events: none;
+  transform: rotate(45deg) translateY(0);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* SPIN THE ARROW WHEN ACCORDION ITEM IS EXPANDED */
+.accordion__input:checked + .accordion__label .accordion__title:after {
+  transform: translateY(60%) rotate(-135deg);
+}
+
+.accordion-content {
+  position: relative;
+  max-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  background-color: darken($white, 3%);
+  transform: translateY(25%);
+  transition: all 0.35s ease-in-out;
+
+  p {
+    margin: 0;
+    padding: 1rem;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.accordion-content__heading {
+  display: inline-block;
+  margin: 1rem 1rem 0;
+  padding-bottom: .15em;
+  border-bottom: 3px solid $label-bg-sm;
+  font-family: 'Open Sans Condensed', inherit;
+  font-weight: 200;
+}
+
+
+.accordion__input:checked ~ .accordion-content {
+  max-height: 25rem;
+  overflow-y: auto;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media screen and (min-width: 361px) {
+  .accordion__label {
+    background-color: $label-bg-md;
+    color: #212121;
+  }
+
+  .accordion__input:focus + .accordion__label,
+  .accordion__label:hover,
+  .accordion__input:checked + .accordion__label:hover {
+    background-color: lighten($label-bg-md, 10%);
+    color: #212121;
+  }
+
+  .accordion__input:checked + .accordion__label {
+    background-color: darken($label-bg-md, 35%);
+    color: $white;
+  }
+
+  .accordion-content__heading {
+    border-bottom: 3px solid $label-bg-md;
+  }
+
+}
+
+@media screen and (min-width: 601px) {
+  .accordion__label {
+    background-color: $label-bg-mdlg;
+    color: $white;
+  }
+
+  .accordion__input:focus + .accordion__label,
+  .accordion__label:hover,
+  .accordion__input:checked + .accordion__label:hover {
+    background-color: lighten($label-bg-mdlg, 20%);
+    color: $white;
+  }
+
+  .accordion__input:checked + .accordion__label {
+    background-color: darken($white, 20%);
+    color: $label-bg-mdlg;
+  }
+
+  .accordion-content__heading {
+    margin-left: 0;
+    margin-right: 0;
+    border-bottom: 3px solid $label-bg-mdlg;
+  }
+
+  .accordion-content img {
+    display: block;
+    max-width: 70%;
+    max-height: 15rem;
+    margin: 1rem;
+    float: left;
+  }
+
+}
+
+@media screen and (min-width: 1025px) {
+  .accordion__label {
+    background-color: $label-bg-lg;
+    color: $white;
+  }
+
+  .accordion__input:focus + .accordion__label,
+  .accordion__label:hover,
+  .accordion__input:checked + .accordion__label:hover {
+    background-color: darken($label-bg-lg, 20%);
+    color: lighten($label-bg-lg, 30%);
+  }
+
+  .accordion__input:checked + .accordion__label {
+    background-color: lighten($label-bg-lg, 30%);
+    color: darken($label-bg-lg, 20%);
+  }
+
+  .accordion__input:checked ~ .accordion-content {
+    max-height: 30rem;
+  }
+
+  .accordion-content__heading {
+    margin: 1rem 0 0;
+    border-bottom: 3px solid $label-bg-lg;
+  }
+
+  // @supports (object-fit: cover) {
+  //   .accordion-content img {
+  //     margin: 0;
+  //     width: 100%;
+  //     height: 100%;
+  //     max-width: none;
+  //     max-height: 12rem;
+  //     float: none;
+  //     object-fit: cover;
+  //   }
+
+  //   .accordion-content__heading {
+  //     margin: 1rem 1rem 0;
+  //   }
+  // }
+
+}

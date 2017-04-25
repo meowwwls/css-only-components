@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS Only Carousel Demo</title>
+  <link rel="stylesheet" href="../css/main.min.css">
+</head>
+<body>
+  <section class="carousel">
+    <header>
+      <h1 class="demo__heading">CSS Only Carousel</h1>
+    </header>
+    <!-- source svg for next and previous controls -->
+    <svg class="source-svg" style="display: none;">
+      <symbol id="controls--arrow" viewBox="0 0 33 33">
+        <g>
+          <polyline fill="none" stroke="#333" stroke-width="3" stroke-linejoin="round" points="23.7,31.5 8.3,16 23.7,0.5"></polyline>
+        </g>
+      </symbol>
+    </svg>
+    <input type="radio" name="carousel1" id="carousel1-opt1" class="carousel__input sr-only focusable" checked>
+    <input type="radio" name="carousel1" id="carousel1-opt2" class="carousel__input sr-only focusable">
+    <input type="radio" name="carousel1" id="carousel1-opt3" class="carousel__input sr-only focusable">
+    <div class="carousel__display">
+      <!-- previous image controls -->
+      <div class="control-wrap carousel__controls--prev">
+        <label class="carousel__control--prev" for="carousel1-opt3" title="previous image">
+          <svg class="carousel__control-arrow carousel__control-arrow--left">
+            <use xlink:href="#controls--arrow"></use>
+          </svg>
+        </label>
+        <label class="carousel__control--prev" for="carousel1-opt1" title="previous image">
+          <svg class="carousel__control-arrow carousel__control-arrow--left">
+            <use xlink:href="#controls--arrow"></use>
+          </svg>
+        </label>
+        <label class="carousel__control--prev" for="carousel1-opt2" title="previous image">
+          <svg class="carousel__control-arrow carousel__control-arrow--left">
+            <use xlink:href="#controls--arrow"></use>
+          </svg>
+        </label>
+      </div>
+      <!-- next image controls -->
+      <div class="control-wrap carousel__controls--next">
+        <label class="carousel__control--next" for="carousel1-opt2" title="next image">
+          <svg class="carousel__control-arrow carousel__control-arrow--right" aria-hidden="true">
+            <use xlink:href="#controls--arrow"></use>
+          </svg>
+        </label>
+        <label class="carousel__control--next" for="carousel1-opt3" title="next image">
+          <svg class="carousel__control-arrow carousel__control-arrow--right" aria-hidden="true">
+            <use xlink:href="#controls--arrow"></use>
+          </svg>
+        </label>
+        <label class="carousel__control--next" for="carousel1-opt1" title="next image">
+          <svg class="carousel__control-arrow carousel__control-arrow--right" aria-hidden="true">
+            <use xlink:href="#controls--arrow"></use>
+          </svg>
+        </label>
+      </div>
+      <!-- images -->
+      <div class="carousel__panels">
+        <ul class="carousel__panel-wrap has-three-panels u-300w">
+          <li class="carousel__panel">
+            <figure class="carousel__figure">
+              <img src="http://unsplash.it/600/900" alt="">
+            </figure>
+          </li>
+          <li class="carousel__panel">
+            <figure class="carousel__figure">
+              <img src="http://unsplash.it/500/500" alt="">
+            </figure>
+          </li>
+          <li class="carousel__panel">
+            <figure class="carousel__figure">
+              <img src="http://unsplash.it/700/600" alt="">
+            </figure>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- round controls -->
+    <div class="carousel__controls--round">
+      <label class="carousel__control--round" for="carousel1-opt1" title="credit card form"></label>
+      <label class="carousel__control--round" for="carousel1-opt2" title="login form"></label>
+      <label class="carousel__control--round" for="carousel1-opt3" title="registration form"></label>
+    </div>
+    <!-- optional description of carousel -->
+    <div class="carousel-desc">
+      <h2 class="carousel-desc__title">About Ze Images</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, animi nulla distinctio adipisci, quasi sint dolores sequi sed, laboriosam quia quisquam omnis magni ipsam? Fugit, eos. Dignissimos quam rem explicabo?</p>
+    </div>
+  </section>
+</body>
+</html>

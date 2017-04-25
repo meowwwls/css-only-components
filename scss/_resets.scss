@@ -1,0 +1,23 @@
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  // padding: 0 2rem;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica,  "Lucida Grande", sans-serif;
+}
+
+p {
+  line-height: 1.5;
+}
+
+label {
+  cursor: pointer;
+}

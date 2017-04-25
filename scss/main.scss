@@ -1,0 +1,14 @@
+// normalize
+@import 'normalize';
+// global colors
+@import 'colors';
+// base resets
+@import 'resets';
+// shared styles
+@import 'global';
+
+// components
+@import 'accordion';
+@import 'carousel';
+// trumps
+@import 'utility';

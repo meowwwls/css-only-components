@@ -1,0 +1,209 @@
+$carousel-col-primary: #F6A43E;
+$carousel-col-secondary: #487D75;
+$carousel-col-accent: #CCE1D1;
+
+$panels: (3, '.has-three-panels'),
+        (4, '.has-four-panels');
+
+@each $num, $class-name in $panels {
+  @for $i from 1 through $num {
+    $x: 0;
+
+    @if $i > 1 {
+      $x: (100 / $num) * ($i - 1);
+    }
+
+    // add transition to carousel panes
+    .carousel__input:nth-of-type(#{$i}):checked ~ .carousel__display #{$class-name} {
+      transform: translateX(#{-$x}#{%});
+    }
+
+    // display carousel panes when associated input is checked
+    .carousel__input:nth-of-type(#{$i}):checked ~ .carousel__display .carousel__control--prev:nth-of-type(#{$i}),
+    .carousel__input:nth-of-type(#{$i}):checked ~ .carousel__display .carousel__control--next:nth-of-type(#{$i}) {
+      display: block;
+    }
+
+    // style bullets when associated input is checked
+    .carousel__input:nth-of-type(#{$i}):checked ~ .carousel__controls--round .carousel__control--round:nth-of-type(#{$i}) {
+      background-color: $carousel-col-primary;
+    }
+  }
+}
+
+.carousel__display {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 55rem;
+  margin: 1.5rem auto;
+}
+
+.control-wrap {
+  margin: 0 1.5rem;
+}
+
+.carousel__controls--next {
+  order: 3;
+}
+
+.carousel__control--prev,
+.carousel__control--next {
+  display: none;
+}
+
+.carousel__control--next {
+  transform: scaleX(-1);
+}
+
+/* SVG control styles */
+
+#controls--arrow polyline {
+  stroke: inherit;
+  stroke-width: inherit;
+}
+
+.carousel__control-arrow {
+  width: 2rem;
+  height: 2rem;
+  pointer-events: none;
+  stroke: $carousel-col-secondary;
+  stroke-width: 0.2rem;
+  transition: stroke 0.3s ease-in-out, stroke-width 0.3s ease-in-out;
+}
+
+.carousel__control--prev:hover .carousel__control-arrow,
+.carousel__control--next:hover .carousel__control-arrow {
+  stroke: $carousel-col-primary;
+  stroke-width: 0.14em;
+}
+
+.carousel__control--prev:active .carousel__control-arrow,
+.carousel__control--next:active .carousel__control-arrow{
+  transform: scale(.85);
+  stroke: $carousel-col-accent;
+  stroke-width: 0.14em;
+}
+
+
+.carousel__control--next:active .project__controls--arrow_right {
+  transform: scaleX(-1) scale(.85);
+}
+
+.carousel__panels {
+  max-width: 40rem;
+  overflow: hidden;
+}
+
+.carousel__panel-wrap {
+  display: flex;
+  height: 25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0;
+  transition: transform  800ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.carousel__panel {
+  flex: 1;
+  height: inherit;
+  background-color: $carousel-col-accent;
+}
+
+.carousel__figure {
+  height: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel__figure img {
+  max-width: 100%;
+  display: block;
+}
+
+@supports (object-fit: cover) {
+  .carousel__figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.carousel__controls--round {
+  text-align: center;
+}
+
+.carousel__control--round {
+  display: inline-block;
+  padding: 0.5rem;
+  width: 1.15rem;
+  height: 1.15rem;
+  background-color: $carousel-col-accent;
+  border-radius: 50%;
+  transition: background 250ms ease-in-out;
+}
+
+.carousel__control--round:not(:first-child) {
+  margin-left: 0.3rem;
+}
+
+.carousel-desc {
+  max-width: 40rem;
+  margin: auto;
+  padding: 1.5rem .25rem;
+
+  &__title {
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: .5rem;
+    padding-bottom: .15em;
+    border-bottom: 2px solid $carousel-col-primary;
+    color: $carousel-col-secondary;
+    font-size: 1.6rem;
+    font-weight: 200;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .control-wrap {
+    position: absolute;
+    top: 50%;
+    padding: .75rem;
+    margin: 0;
+    z-index: 3;
+    background-color: hsla(240, 40%, 0%, .4);
+    transform: translateY(-50%);
+    transition: background-color 300ms ease-out;
+
+    &:hover {
+      background-color: hsla(240, 40%, 0%, .6);
+    }
+
+  }
+
+  .carousel__controls {
+    &--prev {
+      left: 0;
+    }
+
+    &--next {
+      right: 0;
+    }
+  }
+
+  .carousel__control-arrow {
+    stroke: $carousel-col-accent;
+  }
+
+  .control-wrap:hover .carousel__control-arrow {
+    stroke: $carousel-col-primary;
+    stroke-width: 0.25rem;
+  }
+
+  .carousel-desc {
+    padding: 1.5rem;
+  }
+
+}
