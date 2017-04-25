@@ -22,9 +22,9 @@ $gh-grey: #24292E;
 .card__switch {
   position: absolute;
   right: 0;
-  height: 3rem;
-  width: 3rem;
-  z-index: 10;
+  height: 5rem;
+  width: 5rem;
+  z-index: 2;
 }
 
 .card__flip {
@@ -35,71 +35,6 @@ $gh-grey: #24292E;
   font-size: 2rem;
   pointer-events: none;
 }
-
-.card-social {
-  display: flex;
-  padding: 1rem;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.card-social__link {
-  display: inline-block;
-  width: 2rem;
-  height: 2rem;
-  line-height: 2rem;
-  color: white;
-  text-align: center;
-  border-radius: 50%;
-  font-size: 1.5rem;
-  text-decoration: none;
-  transition: all 200ms ease-out;
-
-  &:visited {
-    color: currentColor;
-  }
-
-  &:hover,
-  &:focus {
-    background-color: white;
-  }
-
-  &:active {
-    background-color: lighten($card-primary, 20%);
-  }
-
-  + .card-social__link {
-    margin-left: 1rem;
-  }
-
-  &--twitter {
-    background-color: $tweet-blue;
-    
-    &:hover,
-    &:focus {
-      color: $tweet-blue;
-    }
-
-    &:active {
-      color: white;
-    }
-  }
-
-  &--github,
-  &--codepen {
-    background-color: $gh-grey;
-    
-    &:hover,
-    &:focus {
-      color: $gh-grey;
-    }
-
-    &:active {
-      color: white;
-    }
-  }
-}
-
 
 .card {
   width: inherit;
@@ -169,6 +104,71 @@ $gh-grey: #24292E;
 
 .card__bio {
   line-height: 1.5;
+}
+
+.card-social {
+  margin-top: 2rem;
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.card-social__link {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  color: white;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: all 200ms ease-out;
+
+  &:visited {
+    color: currentColor;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: white;
+  }
+
+  &:active {
+    background-color: lighten($card-primary, 20%);
+  }
+
+  + .card-social__link {
+    margin-left: 1rem;
+  }
+
+  &--twitter {
+    background-color: $tweet-blue;
+    
+    &:hover,
+    &:focus {
+      color: $tweet-blue;
+    }
+
+    &:active {
+      color: white;
+    }
+  }
+
+  &--github,
+  &--codepen {
+    background-color: $gh-grey;
+    
+    &:hover,
+    &:focus {
+      color: $gh-grey;
+    }
+
+    &:active {
+      color: white;
+    }
+  }
 }
 
 .card-back__name {
