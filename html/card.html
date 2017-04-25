@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS Only Flipping Card Demo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../css/main.min.css">
+</head>
+<body>
+    <div class="card__container">
+      <label class="card__switch" for="flipcard" aria-label="flip card"></label>
+      <input class="card__input sr-only focusable" type="checkbox" name="flipcontact" id="flipcard">
+      <div class="card">
+        <div class="card__face card__face--front">
+          <i class="card__flip fa fa-undo" aria-hidden="true"></i>
+          <h1 class="card__name">Leia Organa <span class="card__job">General of the Resistance</span></h1>
+          <p class="card__bio">
+            Call me General, or Leia; anything but Princess. Looking to help any group wanting to be part of the Resistance. I have years of experience as a leader and get along well with humans and Wookies.
+          </p>
+          <p class="card__bio">I am currently not willing to work with Siths.</p>
+        </div>
+        <div class="card__face card__face--back">
+          <i class="card__flip fa fa-undo" aria-hidden="true"></i>
+
+          <!-- <label class="card__switch" for="flipcard" aria-label="flip card"><i class="fa fa-undo" aria-hidden="true"></i></label> -->
+          <p class="card-back__name">Leia Organa</p>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
