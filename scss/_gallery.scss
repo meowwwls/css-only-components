@@ -15,7 +15,7 @@ body.gallery-demo {
 .gallery {
   width: 100%;
   max-width: $max-gal-w;
-  max-height: 35rem;
+  max-height: calc($max-gal-w * 75 / 100);
   position: relative;
 }
 
@@ -27,13 +27,13 @@ body.gallery-demo {
 
 .gallery__thumb {
   display: block;
-  max-width: 5rem;
-  max-height: 5rem;
-  flex: 1;
+  width: 4rem;
+  height: 4rem;
   border: 5px solid #eee;
   opacity: .8;
   cursor: pointer;
   transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
+  overflow: hidden;
   
   &:hover {
     opacity: 1;
@@ -99,6 +99,8 @@ body.gallery-demo {
 @media screen and (min-width: 30em) {
   .gallery__thumb {
     height: 5rem;
+    width: 5rem;
+
     + .gallery__thumb {
       margin-left: 1rem;
     }
