@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CSS Only Thumbnail Gallery Demo</title>
+  <link href="https://fonts.googleapis.com/css?family=Pontano+Sans" rel="stylesheet"> 
+  <link rel="stylesheet" href="../css/main.min.css">
+</head>
+<body class="gallery-demo">
+  <input class="sr-only focusable" type="checkbox" id="gray">
+  <label class="grayscale__label" for="gray">Make Images Grayscale</label>
+
+  <div class="gallery">
+    <div class="gallery__thumbs">
+      <label for="gallery1-img1" class="gallery__thumb">
+        <img src="http://unsplash.it/200/300/?image=1074" alt="A big cat">
+      </label>
+      <label for="gallery1-img2" class="gallery__thumb">
+        <img src="http://unsplash.it/100/300/?image=1020" alt="A bear">
+      </label>
+      <label for="gallery1-img3" class="gallery__thumb">
+        <img src="http://unsplash.it/200/200/?image=1084" alt="I am the walrus">
+      </label>
+      <label for="gallery1-img4" class="gallery__thumb">
+        <img src="http://unsplash.it/300/200/?image=1003" alt="Bambi">
+      </label>
+      <label for="gallery1-img5" class="gallery__thumb">
+        <img src="http://unsplash.it/300/200/?image=718" alt="A wolf">
+      </label>
+    </div>
+
+    <div class="gallery__images">
+      <input type="radio" id="gallery1-img1" name="gallery1-image" class="gallery__input sr-only focusable" checked>
+      <img src="http://unsplash.it/700/500/?image=1074" alt="A big cat">
+      <input type="radio" id="gallery1-img2" name="gallery1-image" class="gallery__input sr-only focusable">
+      <img src="http://unsplash.it/700/700/?image=1020" alt="A bear">
+      <input type="radio" id="gallery1-img3" name="gallery1-image" class="gallery__input sr-only focusable">
+      <img src="http://unsplash.it/700/600/?image=1084" alt="I am the walrus">
+      <input type="radio" id="gallery1-img4" name="gallery1-image" class="gallery__input sr-only focusable">
+      <img src="http://unsplash.it/700/700/?image=1003" alt="Bambi">
+      <input type="radio" id="gallery1-img5" name="gallery1-image" class="gallery__input sr-only focusable">
+      <img src="http://unsplash.it/700/700/?image=718" alt="A wolf">
+    </div>
+  </div>
+  <!-- demo on codepen https://codepen.io/anon/pen/NjbKmX?editors=1100 -->
+</body>
+</html>
