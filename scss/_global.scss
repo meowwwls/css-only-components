@@ -7,3 +7,26 @@
   color: #fff;
   background-color: $g-col-accent;
 }
+
+.value-pairs__list {
+  padding: 1rem;
+}
+
+.value-pairs__key {
+  display: inline;
+  font-weight: bold;
+}
+
+.value-pairs__value {
+  display: inline;
+  margin-left: 0;
+}
+
+/* creates a new block formatting context so each pair is on a new line */
+
+.value-pairs__value + .value-pairs__key::before {
+  content: '';
+  display: block;
+  height: .5rem;
+  /* 	white-space: pre; */
+}

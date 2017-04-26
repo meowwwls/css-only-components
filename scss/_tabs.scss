@@ -1,0 +1,167 @@
+// set a limit for how many tabs can appear
+$tab-max: 6;
+
+$tabs-primary-light: #d1faed;
+$tabs-primary-base: #1ae5a3;
+$tabs-primary-darker: #0D7654;
+$tabs-primary-darkest: darken($tabs-primary-darker, 10%);
+
+$tabs-secondary-light: #fbefd0;
+$tabs-secondary-base: #fed967;
+$tabs-secondary-darker: #fdbf02;
+$tabs-secondary-darkest: #4c4227;
+
+
+@mixin hovered-tab() {
+  background-color: $tabs-secondary-light;
+  color: $tabs-secondary-darkest;
+  border-color: $tabs-secondary-base;
+}
+
+%tab-selected-state {
+  background-color: $tabs-secondary-base;
+  border-color: $tabs-secondary-darker;
+  color: $tabs-secondary-darkest;
+
+  &:hover {
+    @include hovered-tab;
+  }
+}
+
+%tab-content-selected {
+  display: block;
+}
+
+/* tabs demo only styles */
+.tabs-demo {
+  display: flex;
+  flex-direction: column;
+
+  a {
+  text-decoration: none;
+  border-bottom: 1px solid;
+  color: $tabs-primary-darker;
+  transition: all 200ms ease-out;
+
+    &:visited {
+      color: $tabs-primary-darkest;
+    }
+
+    &:hover,
+    &:focus {
+      color: $tabs-primary-light;
+      background-color: $tabs-primary-darker;
+      outline: none;
+    }
+  }
+
+  &__content {
+    flex: 1;
+  }
+}
+
+/* svg icon basic styles */
+path {
+  fill: inherit;
+  stroke: inherit;
+}
+
+/* tabs svg icon basic styles */
+.tabs__icon {
+  height: 8vmin;
+  width: 8vmin;
+  display: inline-block;
+  vertical-align: middle;
+  fill: currentColor;
+}
+
+.tabs__section {
+  width: 100%;
+  max-width: 40rem;
+  margin: 1.5rem auto;
+}
+
+.sm-hide {
+  display: none;
+}
+
+.tabs__list,
+.tab-content__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tabs__list {
+  display: flex;
+  justify-content: center;
+}
+
+.tabs__tab {
+  flex-grow: 1;
+  flex-shrink: 1;
+  border-bottom: transparent 5px solid;
+  background-color: $tabs-primary-light;
+  text-align: center;
+  color: $tabs-primary-darker;
+  transition: all 250ms ease-in-out;
+
+  &:hover,
+  + .tabs__tab:hover {
+    @include hovered-tab;
+  }
+
+  + .tabs__tab {
+    border-left: $tabs-primary-base 1px solid;
+  }
+}
+
+
+.tabs__label {
+  display: block;
+  padding: .5rem 1rem;
+}
+
+.tab__text {
+  margin-top: .15em;
+}
+
+.tab__content {
+  display: none;
+  max-height: 25rem;
+  padding: 1rem 1.5rem;
+  overflow-y: auto;
+  background-color: #f5f5f5;
+  color: #1d2a34;
+}
+
+
+@for $i from 1 through $tab-max {
+  /* tab state when active */
+  .tabs__input:nth-of-type(#{$i}):checked ~ .tabs__list .tabs__tab:nth-child(#{$i}) {
+    @extend %tab-selected-state;
+  }
+
+  /* tab content when active */
+  .tabs__input:nth-of-type(#{$i}):checked ~ .tab-content__list .tab__content:nth-of-type(#{$i}) {
+    @extend %tab-content-selected;
+  }
+
+}
+
+
+@media screen and (min-width: 32em) {
+
+  .tabs__icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .tabs__tab {
+    text-align: center;
+  }
+
+  .tab__text.sm-hide {
+    display: block;
+  }
+}
